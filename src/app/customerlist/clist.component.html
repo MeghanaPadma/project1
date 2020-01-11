@@ -1,0 +1,43 @@
+<div class = "table-responsive">
+<table class ="table table-striped table-bordered table-hover" >
+    <thead>
+        <th>Id</th>
+        <th>name</th>
+        <th>address</th>
+        <th>city</th>
+        <th>state</th>
+        <th>country</th>
+    </thead>
+    <tbody *ngFor = "let customers of customers;" >
+     
+      
+        <ng-container   *ngIf = "customers.state == 'Telangana';then thenpart; else elsepart ;">
+            </ng-container>
+       
+        <ng-template #thenpart>
+        <tr class = "success">
+        <td > {{customers.customerNo}}</td>
+        <td> {{customers.name}}</td>
+        <td > {{customers.address}}</td>
+        <td > {{customers.city}}</td>
+        <td > {{customers.state}}</td>
+        <td > {{customers.country}}</td>
+           
+    
+   </tr>
+        </ng-template>
+   <ng-template #elsepart>
+    <tr class = "danger">
+        <td  > {{customers.customerNo}}</td>
+        <td> {{customers.name}}</td>
+        <td > {{customers.address}}</td>
+        <td > {{customers.city}}</td>
+        <td > {{customers.state}}</td>
+        <td > {{customers.country}}</td>
+    </tr>   
+
+   </ng-template>
+   
+    </tbody>
+</table>
+</div>
